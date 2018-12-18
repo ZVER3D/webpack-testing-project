@@ -23,7 +23,6 @@ const staticMiddleware = express.static('dist');
 // Apply middleware
 server.use(staticMiddleware);
 
-
 // Start the server on port 8080
 server.listen(8080, () => {
     console.log('Server is ready');
