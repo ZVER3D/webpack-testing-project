@@ -35,6 +35,10 @@
   },
   "dependencies": {
     "@babel/register": "^7.0.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "handlebars": "^4.0.12",
+    "handlebars-loader": "^1.7.1",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0"
   }
 }
