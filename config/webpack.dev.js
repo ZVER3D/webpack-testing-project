@@ -1,12 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
     entry: {
-        main: [
-            "./src/main.js"
-        ]
+        main: [ "./src/main.js" ]
     },
     mode: "development",
     output: {
@@ -17,7 +16,6 @@ module.exports = {
     devServer: {
         contentBase: "dist",
         overlay: true,
-        hot: true,
         stats: {
             colors: true
         }
@@ -54,25 +52,6 @@ module.exports = {
                 ]
             },
             {
-                test: /\.pug$/,
-                use: [
-                    {
-                        loader: "pug-loader"
-                    }
-                ]
-            },
-            {
-                test: /\.hbs$/,
-                use: [
-                    {
-                        loader: "handlebars-loader",
-                        query: {
-                            inlineRequires: "/images/"
-                        }
-                    }
-                ]
-            },
-            {
                 test: /\.(jpg|jpeg|png|gif)$/,
                 use: [
                     {
@@ -86,9 +65,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
+        // new webpack.NamedModulesPlugin(),
         new htmlWebpackPlugin({
-            template: "./src/index.hbs",
+            template: "./src/index.ejs",
+            inject: true,
             title: "Title from webpack"
         })
     ]

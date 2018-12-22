@@ -23,7 +23,8 @@ const staticMiddleware = express.static('dist');
 // Apply middleware
 server.use(staticMiddleware);
 
-// Start the server on port 8080
-server.listen(8080, () => {
-    console.log('Server is ready');
+// Start the server on port 8080 or heroku port
+const port = process.env.port || 8080;
+server.listen(port, () => {
+    console.log(`Server is ready. Listening on http://localhost:${port}`);
 });

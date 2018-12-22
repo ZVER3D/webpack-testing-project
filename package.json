@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
     "build": "webpack --config=config/webpack.dev.js",
-    "dev": "nodemon --inspect --watch config --watch src/server src/server/main.js"
+    "dev": "nodemon --inspect --watch config --watch src/server src/server/main.js",
+    "prod": "node src/server/main.js"
   },
   "author": "",
   "license": "ISC",
@@ -35,10 +36,7 @@
   },
   "dependencies": {
     "@babel/register": "^7.0.0",
-    "express": "^4.16.4",
-    "handlebars": "^4.0.12",
-    "handlebars-loader": "^1.7.1",
-    "pug": "^2.0.3",
-    "pug-loader": "^2.4.0"
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4"
   }
 }
